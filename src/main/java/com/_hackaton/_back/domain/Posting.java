@@ -15,10 +15,10 @@ public class Posting {
     @Id
     @GeneratedValue
     private Long id;
-    private String company_name;
-    private String phone_number;
-    private String profile_image;
-    private String sector;
+    private String company_name; //회사이름
+    private String phone_number; //전화번호
+    private String profile_image; //기업이미지
+    private String sector; //
     private String region;
     private String company_images;
     private String detail_address;
