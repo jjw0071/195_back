@@ -8,5 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // @Repository 없어도 됨. JpaRepository가 들고 있기 때문
 public interface UserRepository extends JpaRepository<User,Integer> {
 
+    //findBy 규칙 -> Username 문법
+    // select * from user where username = :username
+    public User findByUsername(String username); //JPA Query Method
 
 }

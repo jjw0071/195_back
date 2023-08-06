@@ -1,7 +1,9 @@
 package com._hackaton._back.domain;
 
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
@@ -12,7 +14,21 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class User {
+
+
+    @Builder
+    public User(String username, String password, String email, String role
+    , String provider, String providerId, Timestamp createDate){
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+        this.provider = provider;
+        this.providerId = providerId;
+        this.createDate = createDate;
+    }
 
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +37,9 @@ public class User {
     private String password;
     private String email;
     private String role; //ROLE_USER, ROLE_ADMIN
+
+    private String provider;
+    private String providerId;
 
     @CreationTimestamp
     private Timestamp createDate; //java.sql이 들고있는 timestamp. 자동 생성
